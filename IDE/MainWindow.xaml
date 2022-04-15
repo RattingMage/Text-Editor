@@ -1,0 +1,77 @@
+﻿<Window x:Class="IDE.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:IDE"
+        mc:Ignorable="d"
+        Title="IDE не на питоне" Height="450" Width="800">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5 5 5 5"/>
+            <Setter Property="Background" Value="#FF616161"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="RichTextBox">
+            <Setter Property="Background" Value="#15171A"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="Background" Value="#FF616161"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Menu VerticalAlignment="Top" Height="25" Background="#FF616161" Foreground="White">
+            <MenuItem Header="File" FontSize="14">
+                <Button Content="Save" Click="Save_Click" BorderBrush="{x:Null}" />
+                <Button Content="Open"  Click="Open_Click" BorderBrush="{x:Null}" />
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem Header="Copy" VerticalAlignment="Top" Height="25" CommandTarget="{Binding ElementName=docBox}" Command="Copy"/>
+                <MenuItem Header="Paste" VerticalAlignment="Top" Height="25" CommandTarget="{Binding ElementName=docBox}" Command="Paste"/>
+                <MenuItem Header="SelectAll" VerticalAlignment="Top" Height="25" CommandTarget="{Binding ElementName=docBox}" Command="SelectAll"/>
+                <MenuItem Header="Cut" VerticalAlignment="Top" Height="25" CommandTarget="{Binding ElementName=docBox}" Command="Cut"/>
+                <MenuItem Header="Undo" VerticalAlignment="Top" Height="25" CommandTarget="{Binding ElementName=docBox}" Command="Undo"/>
+            </MenuItem>
+            <MenuItem Header="Fonts" VerticalAlignment="Top" Height="25">
+                <MenuItem Header="Times New Roman" Click="Change_Fonts"/>
+                <MenuItem Header="Arial" Click="Change_Fonts"/>
+                <MenuItem Header="Calibri" Click="Change_Fonts"/>
+                <MenuItem Header="MS Outlook" Click="Change_Fonts"/>
+                <MenuItem Header="Yu Gothic UI Semibold" Click="Change_Fonts"/>
+                <MenuItem Header="Dubai" Click="Change_Fonts"/>
+                <MenuItem Header="Impact" Click="Change_Fonts"/>
+            </MenuItem>
+            <MenuItem Header="Size" VerticalAlignment="Top" Height="25">
+                <MenuItem Header="14"  Click="Change_Size"/>
+                <MenuItem Header="16"  Click="Change_Size"/>
+                <MenuItem Header="20"  Click="Change_Size"/>
+                <MenuItem Header="24"  Click="Change_Size"/>
+                <MenuItem Header="36"  Click="Change_Size"/>
+                <MenuItem Header="48"  Click="Change_Size"/>
+                <MenuItem Header="72"  Click="Change_Size"/>
+            </MenuItem>
+            <MenuItem Header="Color" VerticalAlignment="Top" Height="25">
+                <MenuItem Header="White" Click="Change_Color"/>
+                <MenuItem Header="Black" Click="Change_Color"/>
+                <MenuItem Header="Blue" Click="Change_Color"/>
+                <MenuItem Header="Red" Click="Change_Color"/>
+                <MenuItem Header="Green" Click="Change_Color"/>
+                <MenuItem Header="Yellow" Click="Change_Color"/>
+                <MenuItem Header="Orange" Click="Change_Color"/>
+            </MenuItem>
+            <MenuItem Header="Style" VerticalAlignment="Top" Height="25">
+                <MenuItem Header="Bold" Click="Bold"/>
+                <MenuItem Header="Italic" Click="Italic"/>
+                <MenuItem Header="Clear" Click="Clear"/>
+            </MenuItem>
+            <MenuItem Header="Help" VerticalAlignment="Top" Height="25" Click="Help_Executed"/>
+        </Menu>
+        <RichTextBox x:Name="docBox" Width="Auto" Height="Auto" Margin="0, 25, 0, 0"/>
+
+    </Grid>
+</Window>
